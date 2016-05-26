@@ -1,0 +1,11 @@
+victoire_core:
+    widgets:
+        DataVisualization:
+            class: "Victoire\\Widget\\DataVisualizationBundle\\Entity\\WidgetDataVisualization"
+            name: DataVisualization
+            cache: false
+jms_translation:
+    configs:
+        victoire_datavisualization_bundle:
+            dirs: ["@VictoireDataVisualizationBundle"]
+            output_dir: "@VictoireDataVisualizationBundle/Resources/translations"
