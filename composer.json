@@ -1,0 +1,33 @@
+{
+    "name": "friendsofvictoire/datavisualization-widget",
+    "type": "symfony-bundle",
+    "description": "Victoire DataVisualization widget",
+    "keywords": [
+        "DCMS",
+        "Victoire",
+        "widget",
+        "FriendsofVictoire",
+        "DataVisualization"
+    ],
+    "authors": [
+        {
+            "name": "Charlie Lucas",
+            "email": "charlielucas.cl@gmail.com",
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.5.9",
+        "symfony/framework-bundle": "~2.8|~3.0",
+        "victoire/victoire": "~1.5"    },
+    "autoload": {
+        "psr-0": { "Victoire\\Widget\\DataVisualizationBundle": "" }
+    },
+    "minimum-stability": "dev",
+    "target-dir": "Victoire/Widget/DataVisualizationBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.5-dev"
+        }
+    }
+}
