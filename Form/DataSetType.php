@@ -13,8 +13,7 @@ use Victoire\Widget\DataVisualizationBundle\Listener\ChartOptionListener;
 use Victoire\Widget\DataVisualizationBundle\Listener\DuplicateDataListener;
 
 /**
- * Class DataSetType
- * @package Victoire\Widget\DataVisualizationBundle\Form
+ * Class DataSetType.
  */
 class DataSetType extends AbstractType
 {

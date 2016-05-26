@@ -6,7 +6,7 @@ use Symfony\Component\Form\DataTransformerInterface;
 
 /**
  * Class DataToDataOptionTransformer.
- * This transformer is used to transform data to an array that can be use to generate a data option type
+ * This transformer is used to transform data to an array that can be use to generate a data option type.
  */
 class DataToDataOptionTransformer implements DataTransformerInterface
 {
@@ -14,6 +14,7 @@ class DataToDataOptionTransformer implements DataTransformerInterface
 
     /**
      * DataToDataOptionTransformer constructor.
+     *
      * @param bool $hasDefault
      */
     public function __construct($hasDefault = true)
@@ -23,6 +24,7 @@ class DataToDataOptionTransformer implements DataTransformerInterface
 
     /**
      * @param mixed $value
+     *
      * @return array
      */
     public function transform($value)
@@ -58,17 +60,17 @@ class DataToDataOptionTransformer implements DataTransformerInterface
         if ((isset($value['isDefault']) && $value['isDefault']) || (isset($value['data_option_single']) && !isset($value['data_option_multiple']))) {
             $val = $value['data_option_single'];
             if ($val == null) {
-                return null;
+                return;
             }
         } elseif (isset($value)) {
             $val = $value['data_option_multiple'];
             foreach ($val as $index => $item) {
                 if ($item == null) {
-                    return null;
+                    return;
                 }
             }
         }
-        
+
         return $val;
     }
 }

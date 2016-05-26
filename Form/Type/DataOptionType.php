@@ -5,8 +5,6 @@ namespace Victoire\Widget\DataVisualizationBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,13 +12,12 @@ use Victoire\Widget\DataVisualizationBundle\Form\Transformer\DataToDataOptionTra
 use Victoire\Widget\DataVisualizationBundle\Listener\DuplicateDataListener;
 
 /**
- * Class DataOptionType
- * @package Victoire\Widget\DataVisualizationBundle\Form\Type
+ * Class DataOptionType.
  */
 class DataOptionType extends AbstractType
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -45,14 +42,13 @@ class DataOptionType extends AbstractType
 
             $listener = new DuplicateDataListener($builder->getFormFactory(), $options['length']);
             $builder->get('data_option_multiple')->addEventSubscriber($listener);
-        }else{
+        } else {
             $builder->add('data_option_single', $options['entry_type'], $options['entry_type_options']);
         }
-
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
@@ -69,7 +65,7 @@ class DataOptionType extends AbstractType
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {

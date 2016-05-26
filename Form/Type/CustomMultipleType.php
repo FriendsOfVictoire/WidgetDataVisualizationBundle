@@ -9,13 +9,12 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class CustomMultipleType
- * @package Victoire\Widget\DataVisualizationBundle\Form\Type
+ * Class CustomMultipleType.
  */
 class CustomMultipleType extends AbstractType
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
@@ -28,7 +27,7 @@ class CustomMultipleType extends AbstractType
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {

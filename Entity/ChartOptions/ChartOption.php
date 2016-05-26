@@ -46,6 +46,7 @@ abstract class ChartOption
     public function setId($id)
     {
         $this->id = $id;
+
         return $this;
     }
 
