@@ -132,7 +132,7 @@ class LineChartOptionType extends ChartOptionType
                 'label' => 'widget_datavisualization.form.dataset.chart_option.pointStyle.label',
             ])
         ;
-        $builder->get('backgroundColor')->addEventListener(FormEvents::POST_SET_DATA, function (FormEvent $event){
+        $builder->get('backgroundColor')->addEventListener(FormEvents::POST_SET_DATA, function (FormEvent $event) {
            //var_dump($event->getData());
         });
     }

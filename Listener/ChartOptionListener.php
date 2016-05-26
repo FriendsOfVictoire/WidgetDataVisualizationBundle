@@ -7,11 +7,9 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormFactoryInterface;
 use Victoire\Widget\DataVisualizationBundle\DependencyInjection\Chain\ChartOptionChain;
-use Victoire\Widget\DataVisualizationBundle\Form\Transformer\DataToDataOptionTransformer;
 
 /**
- * Class ChartOptionListener
- * @package Victoire\Widget\DataVisualizationBundle\Listener
+ * Class ChartOptionListener.
  */
 class ChartOptionListener implements EventSubscriberInterface
 {
@@ -21,7 +19,8 @@ class ChartOptionListener implements EventSubscriberInterface
 
     /**
      * ChartOptionListener constructor.
-     * @param ChartOptionChain $chartOptionChain
+     *
+     * @param ChartOptionChain     $chartOptionChain
      * @param FormFactoryInterface $factory
      * @param $length
      */
@@ -33,7 +32,7 @@ class ChartOptionListener implements EventSubscriberInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getSubscribedEvents()
     {
@@ -61,7 +60,8 @@ class ChartOptionListener implements EventSubscriberInterface
     }
 
     /**
-     * Create the chart Option Form
+     * Create the chart Option Form.
+     *
      * @param FormEvent $event
      */
     private function buildChartOptionForm(FormEvent $event)
@@ -93,9 +93,11 @@ class ChartOptionListener implements EventSubscriberInterface
     }
 
     /**
-     * Map the new ChartOption with old data
+     * Map the new ChartOption with old data.
+     *
      * @param $charOptionClass
      * @param $data
+     *
      * @return mixed
      */
     private function mapChartOption($charOptionClass, $data)

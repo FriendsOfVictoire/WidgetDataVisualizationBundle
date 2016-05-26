@@ -11,8 +11,7 @@ use Victoire\Bundle\CoreBundle\Form\WidgetType;
 use Victoire\Widget\DataVisualizationBundle\Form\Type\CustomMultipleType;
 
 /**
- * Class WidgetDataVisualizationType
- * @package Victoire\Widget\DataVisualizationBundle\Form
+ * Class WidgetDataVisualizationType.
  */
 class WidgetDataVisualizationType extends WidgetType
 {
@@ -42,7 +41,8 @@ class WidgetDataVisualizationType extends WidgetType
     }
 
     /**
-     * Add Datasets form
+     * Add Datasets form.
+     *
      * @param FormEvent $event
      */
     private function addDataSetsForm(FormEvent $event)
