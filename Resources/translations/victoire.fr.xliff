@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2013-11-27T18:15:06Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="1" resname="widget.datavisualization.new.action.label">
+        <source>widget.datavisualization.new.action.label</source>
+        <target state="new">DataVisualization</target>
+      </trans-unit>
+      <trans-unit id="2" resname="modal.form.widget.type.datavisualization.label">
+        <source>modal.form.widget.type.datavisualization.label</source>
+        <target state="new">DataVisualization</target>
+      </trans-unit>
+      <trans-unit id="3" resname="widget_datavisualization.form.data.label">
+        <source>widget_datavisualization.form.data.label</source>
+        <target state="new">data</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.labels.label</source>
+        <target state="new">Labels des données</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.datasets.label</source>
+        <target state="new">Ensemble de données</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.datasets.data.label</source>
+        <target state="new">Données</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart.option.placeholder.label</source>
+        <target state="new">Choisir un type de graph</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.chart_option.bar</source>
+        <target state="new">Barres</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.chart_option.doughnut</source>
+        <target state="new">Donut</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.chart_option.pie</source>
+        <target state="new">Camembert</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.chart_option.line</source>
+        <target state="new">Ligne</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.chart_option.polarArea</source>
+        <target state="new">Zone polaire</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.chart_option.radar</source>
+        <target state="new">Radar</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.data.label</source>
+        <target state="new">Données</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.fill.label</source>
+        <target>Remplir la zone sous la ligne ?</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.lineTension.label</source>
+        <target>Tension de la ligne(0 pour des lignes droites).</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.backgroundColor.label</source>
+        <target>Couleur de fond.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.borderWidth.label</source>
+        <target>Taille des bordures</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.borderColor.label</source>
+        <target>Couleur des bordures</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.borderCapStyle.label</source>
+        <target><![CDATA[Slyle des bouts de ligne. <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap" target="_blank">MDN</a>]]></target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.borderDash.label</source>
+        <target><![CDATA[Tirets pour la ligne <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash" target="_blank">MDN</a>]]></target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.borderDashOffset.label</source>
+        <target><![CDATA[Décalage des tirets <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset" target="_blank">MDN</a>]]></target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.borderJoinStyle.label</source>
+        <target><![CDATA[Jointure des coins <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin" target="_blank">MDN</a>]]></target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.pointBorderColor.label</source>
+        <target>Couleur des bordures des points</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.pointBackgroundColor.label</source>
+        <target>Couleur des points</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.pointBorderWidth.label</source>
+        <target>Taille des bordures des points</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.pointRadius.label</source>
+        <target>Rayon des points</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.pointHoverRadius.label</source>
+        <target>Rayon des point au "hover"</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.hitRadius.label</source>
+        <target>Taille des zones d'interaction</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.pointHoverBackgroundColor.label</source>
+        <target>Couleur des point au "hover"</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.pointHoverBorderColor.label</source>
+        <target>Couleur des bordures des points au "hover"</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.pointHoverBorderWidth.label</source>
+        <target>Taille des bordures des points au "hover"</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.pointStyle.label</source>
+        <target>Style des points</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.hoverBackgroundColor.label</source>
+        <target>Couleur au "hover"</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.hoverBorderColor.label</source>
+        <target>Couleur des bordures au "hover"</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.hoverBorderWidth.label</source>
+        <target>Taille des bordures au "hover"</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.borderSkipped.label</source>
+        <target>Frontière sautée</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.pointHitRadius.label</source>
+        <target>Taille des zones d'interaction des points</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.data.option.isDefault.label</source>
+        <target>Utiliser une valeur par défaut</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.fill.false.label</source>
+        <target>Non</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.chart_option.fill.true.label</source>
+        <target>Oui</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
