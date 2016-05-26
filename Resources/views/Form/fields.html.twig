@@ -1,0 +1,86 @@
+{% use 'form_div_layout.html.twig' with form_label as base_form_label, widget_attributes as base_widget_attributes %}
+{% block custom_multiple_widget %}
+    {% spaceless %}
+    <div id="{{ form.vars.id }}">
+    {{ block('base_form_label') }}
+        <fieldset>
+            {% set allow_delete = allow_delete ? length is null : false %}
+            <ul class="form_array_collection"{% if prototype is defined and length is null %} data-prototype="{{ _self.custom_item_form(form.vars.prototype, form.vars.elem_class, allow_delete, action_button_class)|e }}"{% endif %}>
+                {% for child in form %}
+                    {{ _self.custom_item_form(child, elem_class, allow_delete, action_button_class) }}
+                {% endfor %}
+                {% if allow_add and length is null %}
+                <li>
+                    <a href="#"  class="vic-btn vic-btn-default {{ action_button_class }} form_array_add_item">
+                        Ajouter
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </fieldset>
+    </div>
+{% endspaceless %}
+{% endblock custom_multiple_widget %}
+{% macro custom_item_form(child_item, elem_class, allow_delete, action_button_class) %}
+    <li class="{% if elem_class is not null %}{{ elem_class }} {% endif %}form_array_item">
+        <div class="vic-row">
+            <div class="col-xs-8">
+                {{ form_widget(child_item) }}
+            </div>
+            {% if allow_delete %}
+            <div class="col-xs-4">
+                <a href="#"  class="vic-btn vic-btn-danger {{ action_button_class }} form_array_remove_item">
+                    Supprimer
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </li>
+{% endmacro %}
+
+{% block data_set_widget %}
+<div class="vic-row">
+    <div class="col-xs-8">
+        {{ form_row(form.title) }}
+        {{ form_row(form.type) }}
+        {% if form.chartOption is defined %}
+        {{ form_row(form.chartOption) }}
+        {% endif %}
+    </div>
+    <div class="col-xs-4">
+        {{ form_widget(form.data) }}
+
+    </div>
+</div>
+{% endblock %}
+{% block color_widget %}
+    {% spaceless %}
+        {{ block('form_widget_simple') }}
+    {% endspaceless %}
+{% endblock %}
+{% block data_option_widget %}
+    {% if can_be_default %}
+        {{ form_widget(form.isDefault) }}
+        <div class="form_datavisualization_single">
+            {{ form_widget(form.data_option_single) }}
+        </div>
+        <script>
+            enableDataOptions(
+                $vic('#{{ form.isDefault.vars.id }}'),
+                $vic($vic('#{{ form.data_option_multiple.vars.id }}').parents('.form_datavisualization_multiple')[0]),
+                $vic($vic('#{{ form.data_option_single.vars.id }}').parents('.form_datavisualization_single')[0])
+            );
+        </script>
+    {% endif %}
+    {% if can_be_multiple %}
+        <div class="form_datavisualization_multiple">
+            {{ form_widget(form.data_option_multiple) }}
+        </div>
+    {% endif %}
+    {% if not can_be_default and not can_be_multiple %}
+        <div class="form_datavisualization_single">
+            {{ form_widget(form.data_option_single) }}
+        </div>
+    {% endif %}
+{% endblock %}
+
