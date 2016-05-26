@@ -1,0 +1,60 @@
+services:
+    victoire_core.widget_datavisualization_content_resolver:
+        class: Victoire\Widget\DataVisualizationBundle\Resolver\WidgetDataVisualizationContentResolver
+        parent: victoire_widget.base_widget_content_resolver
+        tags:
+            - { name: victoire_widget.widget_content_resolver, alias: DataVisualization }
+
+    victoire.widget.datavisualization:
+        class: Victoire\Widget\DataVisualizationBundle\Entity\WidgetDataVisualization
+
+    victoire.widget.form.datavisualization:
+        class: Victoire\Widget\DataVisualizationBundle\Form\WidgetDataVisualizationType
+        tags:
+            - { name: form.type }
+
+    victoire.widget.datavisualization.chart_option_chain:
+        class: Victoire\Widget\DataVisualizationBundle\DependencyInjection\Chain\ChartOptionChain
+
+    victoire.widget.form.datavisualization.dataset:
+        class: Victoire\Widget\DataVisualizationBundle\Form\DataSetType
+        arguments:
+            - @victoire.widget.datavisualization.chart_option_chain
+        tags:
+            - { name: form.type }
+
+    victoire.widget.form.chat.option.chart.bar:
+        class: Victoire\Widget\DataVisualizationBundle\Form\ChartOptions\BarChartOptionType
+        tags:
+            - { name: form.typ }
+            - { name: datavisualization.chart_option, alias: bar }
+    victoire.widget.form.chat.option.chart.doughnut:
+        class: Victoire\Widget\DataVisualizationBundle\Form\ChartOptions\DoughnutChartOptionType
+        tags:
+            - { name: form.type }
+            - { name: datavisualization.chart_option, alias: doughnut }
+    victoire.widget.form.chat.option.chart.pie:
+        class: Victoire\Widget\DataVisualizationBundle\Form\ChartOptions\PieChartOptionType
+        tags:
+            - { name: form.type }
+            - { name: datavisualization.chart_option, alias: pie }
+    victoire.widget.form.chat.option.chart.line:
+        class: Victoire\Widget\DataVisualizationBundle\Form\ChartOptions\LineChartOptionType
+        tags:
+            - { name: form.type }
+            - { name: datavisualization.chart_option, alias: line }
+    victoire.widget.form.chat.option.chart.polarArea:
+        class: Victoire\Widget\DataVisualizationBundle\Form\ChartOptions\PolarAreaChartOptionType
+        tags:
+            - { name: form.type }
+            - { name: datavisualization.chart_option, alias: polarArea }
+    victoire.widget.form.chat.option.chart.radar:
+        class: Victoire\Widget\DataVisualizationBundle\Form\ChartOptions\RadarChartOptionType
+        tags:
+            - { name: form.type }
+            - { name: datavisualization.chart_option, alias: radar }
+
+    victoire.widget.datavisualization.twig.chart_option_extension:
+        class: Victoire\Widget\DataVisualizationBundle\Twig\ChartOptionExtension
+        tags:
+            - { name: twig.extension }
