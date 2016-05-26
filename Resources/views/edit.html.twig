@@ -1,6 +1,7 @@
 {% extends 'VictoireCoreBundle:Widget:edit.html.twig' %}
 
 {% block form_static %}
+{% form_theme form 'VictoireWidgetDataVisualizationBundle:Form:fields.html.twig' %}
 <div id="picker-{{ form.mode.vars.data }}" class="vic-tab-pane {% if form.mode.vars.data == widget.mode %}vic-active{% endif %}">    {% trans_default_domain "victoire" %}
     {{ form_start(form) }}
     {{ form_widget(form.labels) }}

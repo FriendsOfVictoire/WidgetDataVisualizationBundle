@@ -1,6 +1,7 @@
-{% use 'form_div_layout.html.twig' with form_label as base_form_label, widget_attributes as base_widget_attributes %}
+{% extends '@VictoireForm/Form/fields.html.twig' %}
 {% block custom_multiple_widget %}
     {% spaceless %}
+    {% set vic_widget_add_btn = null %}
     <div id="{{ form.vars.id }}">
     {{ block('base_form_label') }}
         <fieldset>
