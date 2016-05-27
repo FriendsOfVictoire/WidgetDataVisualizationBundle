@@ -15,7 +15,7 @@ class RadarChartOption extends ChartOption
      * @var string
      * @ORM\Column(name="fill", length=255, nullable=true)
      */
-    private $fill;
+    private $fill = "true";
 
     /**
      * @var string

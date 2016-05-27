@@ -31,7 +31,8 @@ $(document).ready(function() {
 {% endmacro %}
 {% macro displayOptions(chartOption) %}
     {% for optionValue in getChartOptionValues(chartOption)  %}
-        {% set value = attribute(chartOption, optionValue) %}
+        {% set value = attribute(chartOption, optionValue)|raw %}
+        {% if value == '"true"' %}{% set value = "true" %}{% elseif value == '"false"' %}{% set value = "false" %}{% endif %}
         {{ optionValue }} : {{ value|raw }}{% if not loop.last %},{% endif %}
 
     {% endfor %}

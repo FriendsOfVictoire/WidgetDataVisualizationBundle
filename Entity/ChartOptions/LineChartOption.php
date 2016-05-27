@@ -13,9 +13,9 @@ class LineChartOption extends ChartOption
 {
     /**
      * @var bool
-     * @ORM\Column(name="fill", type="boolean")
+     * @ORM\Column(name="fill", length=255, type="string", nullable=true)
      */
-    private $fill = false;
+    private $fill = "true";
 
     /**
      * @var int
