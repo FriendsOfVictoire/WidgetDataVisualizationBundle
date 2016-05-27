@@ -6,10 +6,7 @@
       "foot": ["https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.2/Chart.bundle.js"],
       "victoire-edit": [
         "bundles/victoirewidgetdatavisualization/js/array.js",
-        "bundles/victoirewidgetdatavisualization/js/dataVisualization.js",
-        "https://code.jquery.com/ui/1.11.3/jquery-ui.min.js",
-        "bundles/fenrizbescolorpickertype/lib/js/iris.min.js",
-        "bundles/fenrizbescolorpickertype/js/color_picker_type.js"
+        "bundles/victoirewidgetdatavisualization/js/dataVisualization.js"
       ]
     },
     "stylesheets":
