@@ -21,8 +21,8 @@ class RadarChartOptionType extends ChartOptionType
         $builder
             ->add('fill', ChoiceType::class, [
                 'choices' => [
-                    'widget_datavisualization.form.dataset.chart_option.fill.true.label' => 1,
-                    'widget_datavisualization.form.dataset.chart_option.fill.false.label' => 0,
+                    'widget_datavisualization.form.dataset.chart_option.fill.true.label' => "true",
+                    'widget_datavisualization.form.dataset.chart_option.fill.false.label' => "false",
                 ],
                 'choices_as_values' => true,
                 'label' => 'widget_datavisualization.form.dataset.chart_option.fill.label',
