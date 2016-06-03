@@ -26,7 +26,7 @@ services:
     victoire.widget.form.chat.option.chart.bar:
         class: Victoire\Widget\DataVisualizationBundle\Form\ChartOptions\BarChartOptionType
         tags:
-            - { name: form.typ }
+            - { name: form.type }
             - { name: datavisualization.chart_option, alias: bar }
     victoire.widget.form.chat.option.chart.doughnut:
         class: Victoire\Widget\DataVisualizationBundle\Form\ChartOptions\DoughnutChartOptionType
