@@ -11,15 +11,17 @@ use Symfony\Component\Form\DataTransformerInterface;
 class DataToDataOptionTransformer implements DataTransformerInterface
 {
     private $default;
+    private $length;
 
     /**
      * DataToDataOptionTransformer constructor.
      *
      * @param bool $hasDefault
      */
-    public function __construct($hasDefault = true)
+    public function __construct($hasDefault = true, $length = null)
     {
         $this->default = $hasDefault;
+        $this->length = $length;
     }
 
     /**
@@ -32,10 +34,13 @@ class DataToDataOptionTransformer implements DataTransformerInterface
         $value = json_decode($value);
         if (is_array($value)) {
             $dataOptionMultiple = $value;
+            if ($this->length && $this->length < count($value)) {
+                $dataOptionMultiple = array_slice($dataOptionMultiple, 0, $this->length);
+            }
             $dataOptionSingle = isset($value[0]) ? $value[0] : null;
             $isDefault = false;
         } else {
-            $dataOptionMultiple = [$value];
+            $dataOptionMultiple = $this->length ? array_fill(0, $this->length, $value) : [$value];
             $dataOptionSingle = $value;
             $isDefault = true;
         }

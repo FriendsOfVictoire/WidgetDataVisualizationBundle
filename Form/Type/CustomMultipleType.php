@@ -23,6 +23,7 @@ class CustomMultipleType extends AbstractType
             'elem_class' => null,
             'length' => null,
             'action_button_class' => '',
+            'dynamicLabel' => null,
         ]);
     }
 
@@ -36,6 +37,7 @@ class CustomMultipleType extends AbstractType
             'elem_class' => $options['elem_class'],
             'length' => $options['length'],
             'action_button_class' => $options['action_button_class'],
+            'dynamicLabel' => $options['dynamicLabel'],
         ]);
     }
 

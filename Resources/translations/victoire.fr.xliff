@@ -170,6 +170,232 @@
         <source>widget_datavisualization.form.dataset.chart_option.fill.true.label</source>
         <target>Oui</target>
       </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.global_option.display.label</source>
+        <target>Afficher ?</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.global_option.display.false.label</source>
+        <target>Non</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.global_option.display.true.label</source>
+        <target>Oui</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.global_option.position.label</source>
+        <target>Position</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.global_option.fullWidth.true.label</source>
+        <target>Oui</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.global_option.fullWidth.false.label</source>
+        <target>Non</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.global_option.fullWidth.label</source>
+        <target>Prendre toute la largeur?</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.global_option.fontSize.label</source>
+        <target>Taille de la police</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.global_option.fontFamily.label</source>
+        <target>Type de la police</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.global_option.fontColor.label</source>
+        <target>Couleur</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.global_option.fontStyle.label</source>
+        <target>Style de la police</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.global_option.padding.label</source>
+        <target>Marge intérieur</target>
+      </trans-unit>
+      <trans-unit>
+        <source>widget_datavisualization.form.dataset.global_option.text.label</source>
+        <target>Titre</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.enabled.false.label</source>
+         <target>Non</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.enabled.true.label</source>
+         <target>Oui</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.enabled.label</source>
+         <target>Activer ?</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.backgroundColor.label</source>
+         <target>Couleur de fond</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.titleFontFamily.label</source>
+         <target>Police du titre</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.titleFontSize.label</source>
+         <target>Taille de la police du titre</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.titleFontStyle.label</source>
+         <target>Style de la police du titre</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.titleFontColor.label</source>
+         <target>Couleur du titre</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.titleSpacing.label</source>
+         <target>Espace entre chaque ligne du titre</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.titleMarginBottom.label</source>
+         <target>Marge en bas du titre</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.bodyFontFamily.label</source>
+         <target>Police des tooltips</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.bodyFontSize.label</source>
+         <target>Taille de police des tooltips</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.bodyFontColor.label</source>
+         <target>Couleur de la police des tooltips</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.bodySpacing.label</source>
+         <target>Espace entre chaque ligne des tooltips</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.footerFontFamily.label</source>
+         <target>Police pour le footer des tooltips</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.footerFontSize.label</source>
+         <target>Taille de la police pour le bas des tooltips</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.footerFontStyle.label</source>
+         <target>Style de la police pour le bas des tooltips</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.footerFontColor.label</source>
+         <target>Couleur de la police pour le bas des tooltips</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.footerSpacing.label</source>
+         <target>Espace entre chaque ligne du bas des tooltips</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.footerMarginTop.label</source>
+         <target>Marge à ajouter avnat d'ajouter le bas des tooltips</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.xPadding.label</source>
+         <target>Marge intérieur sur les coté des tooltips</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.yPadding.label</source>
+         <target>Marge intérieur pour le haut et bas des tooltips</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.caretSize.label</source>
+         <target>Taille en pixel des flèches des tooltips</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.cornerRadius.label</source>
+         <target>radius des coins des tooltips</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.multiKeyBackground.label</source>
+         <target>Couleur à mettre derrière les cases quand il y a plusieurs éléments dans la tooltip</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.chart.option.title.label</source>
+         <target>Titre</target>
+      </trans-unit>
+      <trans-unit>
+          <source>widget_datavisualization.form.tabs.labels.tab</source>
+          <target>Colonnes</target>
+      </trans-unit>
+      <trans-unit>
+          <source>widget_datavisualization.form.tabs.dataSets.tab</source>
+          <target>Graphiques à intégrer</target>
+      </trans-unit>
+      <trans-unit>
+          <source>widget_datavisualization.form.tabs.title.tab</source>
+          <target>Titre du graphique</target>
+      </trans-unit>
+      <trans-unit>
+          <source>widget_datavisualization.form.tabs.legend.tab</source>
+          <target>Légendes du graphique</target>
+      </trans-unit>
+      <trans-unit>
+          <source>widget_datavisualization.form.tabs.tooltips.tab</source>
+          <target>Tooltips des graphiques</target>
+      </trans-unit>
+      <trans-unit>
+          <source>widget_datavisualization.form.help.color</source>
+          <target><![CDATA[
+            <h3>
+                Couleurs :
+            </h3>
+            Il y a plusieurs façon de définir une couleur:
+            <ul>
+                <li>
+                    rgba(0, 0, 255, 0.5) => permet d'avoir une transparence
+                </li>
+                <li>
+                    rgb(0, 0, 255)
+                </li>
+                <li>
+                    #0000FF
+                </li>
+                <li>
+                    Utiliser une couleur supportée par tout les browser <a href="http://www.w3schools.com/colors/colors_names.asp" target="_blank">VOIR LISTE</a>
+                    ex: blue
+                </li>
+            </ul>]]></target>
+      </trans-unit>
+      <trans-unit>
+          <source>widget_datavisualization.form.help.options</source>
+          <target><![CDATA[<h3>
+                   Options :
+               </h3>
+               Si des options ne sont pas renseignées, celles par défaut seront utilisés (<a href="http://www.chartjs.org/docs/#chart-configuration-global-configuration">Chart.js</a>)
+           ]]></target>
+      </trans-unit>
+      <trans-unit>
+          <source>widget_datavisualization.form.help.multiple.graphs</source>
+          <target><![CDATA[
+              <h3>
+                  Cumuler des graphiques :
+              </h3>
+              Vous ne pouvez pas cumuler certains graphiques comme camembert/Ligne
+              Pour cumuler des diagrammes en barre et des lignes, il faut forcément que le premier graphique soit en barres.]]>
+          </target>
+      </trans-unit>
+      <trans-unit>
+          <source>widget_datavisualization.form.help.more.features</source>
+          <target><![CDATA[
+              <h3>
+                  Ajouter des fonctionnalités
+              </h3>
+              Si des options de <a href="http://www.chartjs.org/docs">Chart.js</a> manquent, n'hésitez pas à déposer une issue sur <a href="https://github.com/FriendsOfVictoire/WidgetDataVisualizationBundle">github</a>.]]>
+          </target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -13,7 +13,8 @@
     {
       "victoire-edit":
       [
-        "bundles/victoirewidgetdatavisualization/style/array.less"
+        "bundles/victoirewidgetdatavisualization/style/array.less",
+        "bundles/victoirewidgetdatavisualization/style/dataVisualization.css"
       ]
     }
   }

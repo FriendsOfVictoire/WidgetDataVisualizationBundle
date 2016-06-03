@@ -21,8 +21,8 @@ class RadarChartOptionType extends ChartOptionType
         $builder
             ->add('fill', ChoiceType::class, [
                 'choices' => [
-                    'widget_datavisualization.form.dataset.chart_option.fill.true.label' => "true",
-                    'widget_datavisualization.form.dataset.chart_option.fill.false.label' => "false",
+                    'widget_datavisualization.form.dataset.chart_option.fill.true.label' => 'true',
+                    'widget_datavisualization.form.dataset.chart_option.fill.false.label' => 'false',
                 ],
                 'choices_as_values' => true,
                 'label' => 'widget_datavisualization.form.dataset.chart_option.fill.label',
@@ -72,50 +72,80 @@ class RadarChartOptionType extends ChartOptionType
             ->add('pointBorderColor', DataOptionType::class, [
                 'entry_type' => ColorType::class,
                 'length' => $options['length'],
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'label' => 'widget_datavisualization.form.dataset.chart_option.pointBorderColor.label',
             ])
             ->add('pointBackgroundColor', DataOptionType::class, [
                 'entry_type' => ColorType::class,
                 'length' => $options['length'],
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'label' => 'widget_datavisualization.form.dataset.chart_option.pointBackgroundColor.label',
             ])
             ->add('pointBorderWidth', DataOptionType::class, [
                 'entry_type' => IntegerType::class,
                 'length' => $options['length'],
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'label' => 'widget_datavisualization.form.dataset.chart_option.pointBorderWidth.label',
             ])
             ->add('pointRadius', DataOptionType::class, [
                 'entry_type' => IntegerType::class,
                 'length' => $options['length'],
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'label' => 'widget_datavisualization.form.dataset.chart_option.pointRadius.label',
             ])
             ->add('pointHoverRadius', DataOptionType::class, [
                 'entry_type' => IntegerType::class,
                 'length' => $options['length'],
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'label' => 'widget_datavisualization.form.dataset.chart_option.pointHoverRadius.label',
             ])
             ->add('hitRadius', DataOptionType::class, [
                 'entry_type' => IntegerType::class,
                 'length' => $options['length'],
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'label' => 'widget_datavisualization.form.dataset.chart_option.hitRadius.label',
             ])
             ->add('pointHoverBackgroundColor', DataOptionType::class, [
                 'entry_type' => ColorType::class,
                 'length' => $options['length'],
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'label' => 'widget_datavisualization.form.dataset.chart_option.pointHoverBackgroundColor.label',
             ])
             ->add('pointHoverBorderColor', DataOptionType::class, [
                 'entry_type' => ColorType::class,
                 'length' => $options['length'],
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'label' => 'widget_datavisualization.form.dataset.chart_option.pointHoverBorderColor.label',
             ])
             ->add('pointHoverBorderWidth', DataOptionType::class, [
                 'entry_type' => IntegerType::class,
                 'length' => $options['length'],
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'label' => 'widget_datavisualization.form.dataset.chart_option.pointHoverBorderWidth.label',
             ])
             ->add('pointStyle', DataOptionType::class, [
                 'entry_type' => ChoiceType::class,
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'length' => $options['length'],
                 'entry_type_options' => [
                     'choices' => [

@@ -3,7 +3,7 @@ $vic(document).ready(function () {
         var form = $vic(this);
         loading(true);
 
-        var targetClass = ".vic-modal-body .vic-container-fluid .vic-tab-pane.vic-active";
+        var targetClass = ".vic-modal-body .vic-container-fluid .vic-tab-pane.vic-active:not(.datavisualizationForm)";
         if ($vic(this).data('target')) {
             targetClass = $vic(this).data('target');
         } else if ($vic(this).parents('.vic-modal').hasClass('-stylize')) {

@@ -8,6 +8,9 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Victoire\Bundle\CoreBundle\Form\WidgetType;
+use Victoire\Widget\DataVisualizationBundle\Form\GlobalOptions\LegendType;
+use Victoire\Widget\DataVisualizationBundle\Form\GlobalOptions\TitleType;
+use Victoire\Widget\DataVisualizationBundle\Form\GlobalOptions\TooltipsType;
 use Victoire\Widget\DataVisualizationBundle\Form\Type\CustomMultipleType;
 
 /**
@@ -38,6 +41,9 @@ class WidgetDataVisualizationType extends WidgetType
             $this->addDataSetsForm($event);
         });
         parent::buildForm($builder, $options);
+        $builder->add('title', TitleType::class);
+        $builder->add('legend', LegendType::class);
+        $builder->add('tooltips', TooltipsType::class);
     }
 
     /**

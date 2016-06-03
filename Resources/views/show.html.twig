@@ -15,12 +15,27 @@ $(document).ready(function() {
                 type: "{{ dataSet.type }}", {% endif %}
 
                 label: "{{ dataSet.title }}",
-                data: {{ _self.displayArray(dataSet.data) }} ,
+                data: {{ _self.displayData(dataSet.data) }} ,
             {{  _self.displayOptions(dataSet.chartOption) }}
 
             }{% if not loop.last %},{% endif %}{% if loop.last %}]
 
-        }{% endif %}{% endfor %}
+
+        }{% endif %}{% endfor %},
+        options: {
+            legend: { {% if widget.legend %}
+
+                {{ _self.displayGlobalOptions(widget.legend) }}{% endif %}
+            },
+            title: { {% if widget.title %}
+
+                {{ _self.displayGlobalOptions(widget.title) }}{% endif %}
+            },
+            tooltips: { {% if widget.tooltips %}
+
+                {{ _self.displayGlobalOptions(widget.tooltips) }}{% endif %}
+            }
+        }
 
     });
 });
@@ -29,11 +44,21 @@ $(document).ready(function() {
 {% macro displayArray(array) %}
     [{% for item in array %}"{{ item }}"{% if not loop.last %},{% endif %}{% endfor %}]
 {% endmacro %}
+{% macro displayData(array) %}
+    [{% for item in array %}{{ item }}{% if not loop.last %},{% endif %}{% endfor %}]
+{% endmacro %}
 {% macro displayOptions(chartOption) %}
     {% for optionValue in getChartOptionValues(chartOption)  %}
         {% set value = attribute(chartOption, optionValue)|raw %}
         {% if value == '"true"' %}{% set value = "true" %}{% elseif value == '"false"' %}{% set value = "false" %}{% endif %}
         {{ optionValue }} : {{ value|raw }}{% if not loop.last %},{% endif %}
+
+    {% endfor %}
+{% endmacro %}
+{% macro displayGlobalOptions(globalOption) %}
+    {% for optionValue in getGlobalOptionValues(globalOption)  %}
+        {% set value = attribute(globalOption, optionValue) %}
+            {{ optionValue }} : {{ displayJsonFor(value) }}{% if not loop.last %},{% endif %}
 
     {% endfor %}
 {% endmacro %}

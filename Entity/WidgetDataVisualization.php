@@ -5,6 +5,9 @@ namespace Victoire\Widget\DataVisualizationBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Victoire\Bundle\WidgetBundle\Entity\Widget;
+use Victoire\Widget\DataVisualizationBundle\Entity\GlobalOptions\Legend;
+use Victoire\Widget\DataVisualizationBundle\Entity\GlobalOptions\Title;
+use Victoire\Widget\DataVisualizationBundle\Entity\GlobalOptions\Tooltips;
 
 /**
  * WidgetDataVisualization.
@@ -26,6 +29,24 @@ class WidgetDataVisualization extends Widget
      * @ORM\Column(name="labels", type="json_array")
      */
     private $labels;
+
+    /**
+     * @var Title
+     * @ORM\OneToOne(targetEntity="Victoire\Widget\DataVisualizationBundle\Entity\GlobalOptions\Title", inversedBy="widgetDatavisualization", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    private $title;
+
+    /**
+     * @var Legend
+     * @ORM\OneToOne(targetEntity="Victoire\Widget\DataVisualizationBundle\Entity\GlobalOptions\Legend", inversedBy="widgetDatavisualization", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    private $legend;
+
+    /**
+     * @var Tooltips
+     * @ORM\OneToOne(targetEntity="Victoire\Widget\DataVisualizationBundle\Entity\GlobalOptions\Tooltips", inversedBy="widgetDatavisualization", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    private $tooltips;
 
     /**
      * To String function
@@ -124,5 +145,56 @@ class WidgetDataVisualization extends Widget
         $this->view = $view;
 
         return $this;
+    }
+
+    /**
+     * @return Title
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param Title $title
+     */
+    public function setTitle(Title $title)
+    {
+        $this->title = $title;
+        $title->setWidgetDataVisualization($this);
+    }
+
+    /**
+     * @return Legend
+     */
+    public function getLegend()
+    {
+        return $this->legend;
+    }
+
+    /**
+     * @param Legend $legend
+     */
+    public function setLegend(Legend $legend)
+    {
+        $this->legend = $legend;
+        $legend->setWidgetDataVisualization($this);
+    }
+
+    /**
+     * @return Tooltips
+     */
+    public function getTooltips()
+    {
+        return $this->tooltips;
+    }
+
+    /**
+     * @param Tooltips $tooltips
+     */
+    public function setTooltips(Tooltips $tooltips)
+    {
+        $this->tooltips = $tooltips;
+        $tooltips->setWidgetDataVisualization($this);
     }
 }

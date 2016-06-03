@@ -44,6 +44,9 @@ class DuplicateDataListener implements EventSubscriberInterface
             for ($i = count($data); $i < $this->length; ++$i) {
                 $data[] = null;
             }
+            if (count($data) > $this->length) {
+                $data = array_slice($data, 0, $this->length);
+            }
             $config = $event->getForm()->getConfig();
             $event->getForm()->getParent()->add(
                 $this->factory->createNamed(

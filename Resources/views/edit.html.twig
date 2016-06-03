@@ -4,9 +4,67 @@
 {% form_theme form 'VictoireWidgetDataVisualizationBundle:Form:fields.html.twig' %}
 <div id="picker-{{ form.mode.vars.data }}" class="vic-tab-pane {% if form.mode.vars.data == widget.mode %}vic-active{% endif %}">    {% trans_default_domain "victoire" %}
     {{ form_start(form) }}
-    {{ form_widget(form.labels) }}
-    {{ form_widget(form.dataSets) }}
+    <ul class="vic-nav vic-nav-tabs vic-modal-nav-tabs">
+        <li class=" vic-seperate vic-active">
+            <a href="#picker-labels" data-toggle="vic-tab">
+                {{ 'widget_datavisualization.form.tabs.labels.tab'|trans }}
+            </a>
+        </li>
+        <li class=" vic-seperate">
+            <a href="#picker-dataSets" data-toggle="vic-tab">
+                {{ 'widget_datavisualization.form.tabs.dataSets.tab'|trans }}
+            </a>
+        </li>
+        <li class=" vic-seperate">
+            <a href="#picker-title" data-toggle="vic-tab">
+                {{ 'widget_datavisualization.form.tabs.title.tab'|trans }}
+            </a>
+        </li>
+        <li class=" vic-seperate">
+            <a href="#picker-legend" data-toggle="vic-tab">
+                {{ 'widget_datavisualization.form.tabs.legend.tab'|trans }}
+            </a>
+        </li>
+        <li class=" vic-seperate">
+            <a href="#picker-tooltips" data-toggle="vic-tab">
+                {{ 'widget_datavisualization.form.tabs.tooltips.tab'|trans }}
+            </a>
+        </li>
+    </ul>
+    <div class="vic-tab-content vic-modal-tab-content">
+        <div id="picker-labels" class="vic-tab-pane datavisualizationForm vic-active">
+            {{ form_widget(form.labels) }}
+        </div>
+        <div id="picker-dataSets" class="vic-tab-pane datavisualizationForm">
+            {{ form_widget(form.dataSets) }}
+            <div class="vic-alert-info">
+                <div class="datavisualisation-help">
+                    {{ "widget_datavisualization.form.help.multiple.graphs"|trans|raw }}
+                </div>
+            </div>
+        </div>
+
+        <div id="picker-title" class="vic-tab-pane datavisualizationForm">
+            {{ form_widget(form.title) }}
+        </div>
+
+        <div id="picker-legend" class="vic-tab-pane datavisualizationForm">
+            {{ form_widget(form.legend) }}
+        </div>
+
+        <div id="picker-tooltips" class="vic-tab-pane datavisualizationForm">
+            {{ form_widget(form.tooltips) }}
+        </div>
+
+    </div>
     {{ form_rest(form) }}
     {{ form_end(form) }}
+    <div class="vic-alert-info">
+        <div class="datavisualisation-help">
+            {{ "widget_datavisualization.form.help.color"|trans|raw }}
+            {{ "widget_datavisualization.form.help.options"|trans|raw }}
+            {{ "widget_datavisualization.form.help.more.features"|trans|raw }}
+        </div>
+    </div>
 </div>
 {% endblock form_static %}

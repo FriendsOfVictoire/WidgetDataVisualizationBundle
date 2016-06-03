@@ -15,11 +15,11 @@ class LineChartOption extends ChartOption
      * @var bool
      * @ORM\Column(name="fill", length=255, type="string", nullable=true)
      */
-    private $fill = "true";
+    private $fill = 'true';
 
     /**
      * @var int
-     * @ORM\Column(name="lineTension", type="integer")
+     * @ORM\Column(name="lineTension", type="string")
      */
     private $lineTension;
 
