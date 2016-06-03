@@ -39,12 +39,15 @@ class DataSetType extends AbstractType
             $choices['widget_datavisualization.chart_option.'.$alias] = $alias;
         }
         $builder
-            ->add('title')
+            ->add('title', null, [
+                'label' => 'widget_datavisualization.form.dataset.chart.option.title.label',
+            ])
             ->add('type', ChoiceType::class, [
                 'choices' => $choices,
                 'choices_as_values' => true,
                 'attr' => [
                     'data-refreshOnChange' => 'true',
+                    'data-target' => '.vic-modal-body .vic-container-fluid .vic-tab-pane.vic-active:not(.datavisualizationForm)',
                 ],
                 'placeholder' => 'widget_datavisualization.form.dataset.chart.option.placeholder.label',
                 'empty_data' => null,
@@ -59,6 +62,7 @@ class DataSetType extends AbstractType
                 'allow_add' => false,
                 'allow_delete' => false,
                 'by_reference' => false,
+                'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
                 'length' => $options['label_length'],
             ])
         ;

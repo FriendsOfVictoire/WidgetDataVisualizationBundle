@@ -37,14 +37,16 @@ class ChartOptionToJsonTransformer implements DataTransformerInterface
                 $field = $property->getName();
                 $setter = 'set'.ucfirst($field);
                 $getter = 'get'.ucfirst($field);
-                $val = $value->$getter();
-                if ($val != null) {
-                    if (!is_bool($val)) {
-                        $val = json_encode($val);
-                    } else {
-                        $val = json_encode((bool) $val);
+                if (method_exists($value, $getter)) {
+                    $val = $value->$getter();
+                    if ($val != null) {
+                        if (!is_bool($val)) {
+                            $val = json_encode($val);
+                        } else {
+                            $val = json_encode((bool) $val);
+                        }
+                        $value->$setter($val);
                     }
-                    $value->$setter($val);
                 }
             }
         }

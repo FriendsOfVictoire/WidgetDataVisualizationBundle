@@ -13,3 +13,10 @@ $vic(document).ready(function(){
         $vic(itemParent).parents('form').trigger("data-visualization-action");
     });
 });
+var bindDynamicLabel = function (childItemId, dynamicLabel) {
+    var input = $vic($vic('[name="' + dynamicLabel + '"]')[0]);
+    $vic('#' + childItemId).parent().prepend("<label for='" + childItemId + "'>" + input.val() + " :</label>");
+    input.on('change', function(){
+        $vic($vic('[for="' + childItemId + '"]')[0]).html($vic(this).val() + ' :');
+    });
+};

@@ -15,11 +15,11 @@ class RadarChartOption extends ChartOption
      * @var string
      * @ORM\Column(name="fill", length=255, nullable=true)
      */
-    private $fill = "true";
+    private $fill = 'true';
 
     /**
      * @var string
-     * @ORM\Column(name="lineTension", length=255, nullable=true)
+     * @ORM\Column(name="lineTension", type="string", length=255, nullable=true)
      */
     private $lineTension;
 

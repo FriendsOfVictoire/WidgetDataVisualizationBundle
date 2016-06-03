@@ -21,23 +21,35 @@ class DoughnutChartOptionType extends ChartOptionType
             ->add('backgroundColor', DataOptionType::class, [
                 'entry_type' => ColorType::class,
                 'length' => $options['length'],
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'can_be_default' => false,
                 'label' => 'widget_datavisualization.form.dataset.chart_option.backgroundColor.label',
             ])
             ->add('borderWidth', DataOptionType::class, [
                 'entry_type' => IntegerType::class,
                 'length' => $options['length'],
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'can_be_default' => false,
                 'label' => 'widget_datavisualization.form.dataset.chart_option.borderWidth.label',
             ])
             ->add('borderColor', DataOptionType::class, [
                 'entry_type' => ColorType::class,
                 'length' => $options['length'],
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'can_be_default' => false,
                 'label' => 'widget_datavisualization.form.dataset.chart_option.borderColor.label',
             ])
             ->add('hoverBackgroundColor', DataOptionType::class, [
                 'entry_type' => ColorType::class,
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'length' => $options['length'],
                 'can_be_default' => false,
                 'label' => 'widget_datavisualization.form.dataset.chart_option.hoverBackgroundColor.label',
@@ -45,12 +57,18 @@ class DoughnutChartOptionType extends ChartOptionType
             ->add('hoverBorderColor', DataOptionType::class, [
                 'entry_type' => ColorType::class,
                 'length' => $options['length'],
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'can_be_default' => false,
                 'label' => 'widget_datavisualization.form.dataset.chart_option.hoverBorderColor.label',
             ])
             ->add('hoverBorderWidth', DataOptionType::class, [
                 'entry_type' => IntegerType::class,
                 'length' => $options['length'],
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
                 'can_be_default' => false,
                 'label' => 'widget_datavisualization.form.dataset.chart_option.hoverBorderWidth.label',
             ])

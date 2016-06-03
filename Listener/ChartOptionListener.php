@@ -38,7 +38,6 @@ class ChartOptionListener implements EventSubscriberInterface
     {
         return [
             FormEvents::PRE_SET_DATA => 'preSetData',
-            FormEvents::POST_SET_DATA => 'preSetData',
             FormEvents::PRE_SUBMIT => 'preSubmit',
         ];
     }

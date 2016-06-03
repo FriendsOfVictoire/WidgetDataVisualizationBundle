@@ -2,27 +2,29 @@
 {% block custom_multiple_widget %}
     {% spaceless %}
     {% set vic_widget_add_btn = null %}
+    {% if dynamicLabel is not null %}
+        {% set formRootSplit = full_name|split('[') %}
+        {% set dynamicLabel = dynamicLabel|replace({"{{formRootId}}" : formRootSplit[0]}) %}
+    {% endif %}
     <div id="{{ form.vars.id }}">
-    {{ block('base_form_label') }}
-        <fieldset>
-            {% set allow_delete = allow_delete ? length is null : false %}
-            <ul class="form_array_collection"{% if prototype is defined and length is null %} data-prototype="{{ _self.custom_item_form(form.vars.prototype, form.vars.elem_class, allow_delete, action_button_class)|e }}"{% endif %}>
-                {% for child in form %}
-                    {{ _self.custom_item_form(child, elem_class, allow_delete, action_button_class) }}
-                {% endfor %}
-                {% if allow_add and length is null %}
-                <li>
-                    <a href="#"  class="vic-btn vic-btn-default {{ action_button_class }} form_array_add_item">
-                        Ajouter
-                    </a>
-                </li>
-                {% endif %}
-            </ul>
-        </fieldset>
+    {{ block('form_label') }}
+        {% set allow_delete = allow_delete ? length is null : false %}
+        <ul class="form_array_collection"{% if prototype is defined and length is null %} data-prototype="{{ _self.custom_item_form(form.vars.prototype, form.vars.elem_class, allow_delete, action_button_class, dynamicLabel, '__name__')|e }}"{% endif %}>
+            {% for index, child in form %}
+                {{ _self.custom_item_form(child, elem_class, allow_delete, action_button_class, dynamicLabel, index) }}
+            {% endfor %}
+            {% if allow_add and length is null %}
+            <li>
+                <a href="#"  class="vic-btn vic-btn-default {{ action_button_class }} form_array_add_item">
+                    Ajouter
+                </a>
+            </li>
+            {% endif %}
+        </ul>
     </div>
 {% endspaceless %}
 {% endblock custom_multiple_widget %}
-{% macro custom_item_form(child_item, elem_class, allow_delete, action_button_class) %}
+{% macro custom_item_form(child_item, elem_class, allow_delete, action_button_class, dynamicLabel, index) %}
     <li class="{% if elem_class is not null %}{{ elem_class }} {% endif %}form_array_item">
         <div class="vic-row">
             <div class="col-xs-8">
@@ -37,22 +39,27 @@
             {% endif %}
         </div>
     </li>
+    {% if dynamicLabel is not null %}
+        <script>bindDynamicLabel("{{ child_item.vars.id }}", "{{dynamicLabel|replace({'{{index}}': index})}}");</script>
+    {% endif %}
 {% endmacro %}
 
 {% block data_set_widget %}
-<div class="vic-row">
-    <div class="col-xs-8">
-        {{ form_row(form.title) }}
-        {{ form_row(form.type) }}
-        {% if form.chartOption is defined %}
-        {{ form_row(form.chartOption) }}
-        {% endif %}
-    </div>
-    <div class="col-xs-4">
-        {{ form_widget(form.data) }}
+    <fieldset class="datavisualisation-dataset-item">
+        <div class="vic-row">
+            <div class="col-xs-8">
+                {{ form_row(form.title) }}
+                {{ form_row(form.type) }}
+                {% if form.chartOption is defined %}
+                {{ form_row(form.chartOption) }}
+                {% endif %}
+            </div>
+            <div class="col-xs-4">
+                {{ form_widget(form.data) }}
 
-    </div>
-</div>
+            </div>
+        </div>
+    </fieldset>
 {% endblock %}
 {% block color_widget %}
     {% spaceless %}
@@ -84,4 +91,162 @@
         </div>
     {% endif %}
 {% endblock %}
-
+{% block title_widget %}
+    <div class="vic-form-group">
+        <div class="vic-row">
+            <div class="vic-col-md-4">
+                {{ form_row(form.display) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.text) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.position) }}
+            </div>
+        </div>
+    </div>
+    <div class="vic-form-group">
+        <div class="vic-row">
+            <div class="vic-col-md-4">
+                {{ form_row(form.fullWidth) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.fontSize) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.fontFamily) }}
+            </div>
+        </div>
+    </div>
+    <div class="vic-form-group">
+        <div class="vic-row">
+            <div class="vic-col-md-4">
+                {{ form_row(form.fontColor) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.fontStyle) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.padding) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block legend_widget %}
+    <div class="vic-form-group">
+        <div class="vic-row">
+            <div class="vic-col-md-4">
+                {{ form_row(form.display) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.position) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.fullWidth) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block tooltips_widget %}
+    <div class="vic-form-group">
+        <div class="vic-row">
+            <div class="vic-col-md-4">
+                {{ form_row(form.enabled) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.backgroundColor) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.titleFontFamily) }}
+            </div>
+        </div>
+    </div>
+    <div class="vic-form-group">
+        <div class="vic-row">
+            <div class="vic-col-md-4">
+                {{ form_row(form.titleFontSize) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.titleFontStyle) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.titleFontColor) }}
+            </div>
+        </div>
+    </div>
+    <div class="vic-form-group">
+        <div class="vic-row">
+            <div class="vic-col-md-4">
+                {{ form_row(form.titleSpacing) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.titleMarginBottom) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.bodyFontFamily) }}
+            </div>
+        </div>
+    </div>
+    <div class="vic-form-group">
+        <div class="vic-row">
+            <div class="vic-col-md-4">
+                {{ form_row(form.bodyFontSize) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.bodyFontColor) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.bodySpacing) }}
+            </div>
+        </div>
+    </div>
+    <div class="vic-form-group">
+        <div class="vic-row">
+            <div class="vic-col-md-4">
+                {{ form_row(form.footerFontFamily) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.footerFontSize) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.footerFontStyle) }}
+            </div>
+        </div>
+    </div>
+    <div class="vic-form-group">
+        <div class="vic-row">
+            <div class="vic-col-md-4">
+                {{ form_row(form.footerFontColor) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.footerSpacing) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.footerMarginTop) }}
+            </div>
+        </div>
+    </div>
+    <div class="vic-form-group">
+        <div class="vic-row">
+            <div class="vic-col-md-4">
+                {{ form_row(form.xPadding) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.yPadding) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.caretSize) }}
+            </div>
+        </div>
+    </div>
+    <div class="vic-form-group">
+        <div class="vic-row">
+            <div class="vic-col-md-4">
+                {{ form_row(form.cornerRadius) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.multiKeyBackground) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

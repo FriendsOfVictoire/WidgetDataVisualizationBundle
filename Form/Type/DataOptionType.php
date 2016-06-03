@@ -21,7 +21,7 @@ class DataOptionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->addModelTransformer(new DataToDataOptionTransformer($options['can_be_default']));
+        $builder->addModelTransformer(new DataToDataOptionTransformer($options['can_be_default'], $options['length']));
         // if we can have a default value
         if ($options['can_be_multiple']) {
             if ($options['can_be_default']) {
