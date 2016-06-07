@@ -31,12 +31,13 @@ $(document).ready(function() {
 
                 {{ _self.displayGlobalOptions(widget.title) }}{% endif %}
             },
-            tooltips: { {% if widget.tooltips %}
+            tooltips: {
+                {% if widget.tooltips %}
 
                 {{ _self.displayGlobalOptions(widget.tooltips) }}{% endif %}
-            }
-        }
 
+            },
+        }
     });
 });
 </script>

@@ -155,7 +155,7 @@
             </div>
             <div class="vic-col-md-4">
                 {{ form_row(form.backgroundColor) }}
-            </div>
+            </div>{#
             <div class="vic-col-md-4">
                 {{ form_row(form.titleFontFamily) }}
             </div>
@@ -170,7 +170,7 @@
                 {{ form_row(form.titleFontStyle) }}
             </div>
             <div class="vic-col-md-4">
-                {{ form_row(form.titleFontColor) }}
+                {{ form_row(form.titleColor) }}
             </div>
         </div>
     </div>
@@ -181,7 +181,7 @@
             </div>
             <div class="vic-col-md-4">
                 {{ form_row(form.titleMarginBottom) }}
-            </div>
+            </div>#}
             <div class="vic-col-md-4">
                 {{ form_row(form.bodyFontFamily) }}
             </div>
@@ -193,13 +193,14 @@
                 {{ form_row(form.bodyFontSize) }}
             </div>
             <div class="vic-col-md-4">
-                {{ form_row(form.bodyFontColor) }}
+                {{ form_row(form.bodyColor) }}
             </div>
             <div class="vic-col-md-4">
                 {{ form_row(form.bodySpacing) }}
             </div>
         </div>
     </div>
+    {#
     <div class="vic-form-group">
         <div class="vic-row">
             <div class="vic-col-md-4">
@@ -216,7 +217,7 @@
     <div class="vic-form-group">
         <div class="vic-row">
             <div class="vic-col-md-4">
-                {{ form_row(form.footerFontColor) }}
+                {{ form_row(form.footerColor) }}
             </div>
             <div class="vic-col-md-4">
                 {{ form_row(form.footerSpacing) }}
@@ -225,7 +226,7 @@
                 {{ form_row(form.footerMarginTop) }}
             </div>
         </div>
-    </div>
+    </div>#}
     <div class="vic-form-group">
         <div class="vic-row">
             <div class="vic-col-md-4">
@@ -246,6 +247,9 @@
             </div>
             <div class="vic-col-md-4">
                 {{ form_row(form.multiKeyBackground) }}
+            </div>
+            <div class="vic-col-md-4">
+                {{ form_row(form.displayOnBorders) }}
             </div>
         </div>
     </div>

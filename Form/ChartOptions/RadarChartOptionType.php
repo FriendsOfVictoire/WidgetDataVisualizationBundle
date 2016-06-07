@@ -19,12 +19,17 @@ class RadarChartOptionType extends ChartOptionType
     {
         parent::buildForm($builder, $options);
         $builder
-            ->add('fill', ChoiceType::class, [
-                'choices' => [
-                    'widget_datavisualization.form.dataset.chart_option.fill.true.label' => 'true',
-                    'widget_datavisualization.form.dataset.chart_option.fill.false.label' => 'false',
+            ->add('fill', DataOptionType::class, [
+                'entry_type' =>  ChoiceType::class,
+                'entry_type_options' => [
+                    'choices' => [
+                        'widget_datavisualization.form.dataset.chart_option.fill.false.label' => 'false',
+                        'widget_datavisualization.form.dataset.chart_option.fill.true.label' => 'true',
+                    ],
+                    'choices_as_values' => true,
                 ],
-                'choices_as_values' => true,
+                'can_be_default' => false,
+                'can_be_multiple' => false,
                 'label' => 'widget_datavisualization.form.dataset.chart_option.fill.label',
             ])
             ->add('lineTension', IntegerType::class, [

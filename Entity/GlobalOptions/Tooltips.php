@@ -55,9 +55,9 @@ class Tooltips extends GlobalOption
     /**
      * @var string
      *
-     * @ORM\Column(name="titleFontColor", type="string", length=255, nullable=true)
+     * @ORM\Column(name="titleColor", type="string", length=255, nullable=true)
      */
-    private $titleFontColor;
+    private $titleColor;
 
     /**
      * @var string
@@ -90,9 +90,9 @@ class Tooltips extends GlobalOption
     /**
      * @var string
      *
-     * @ORM\Column(name="bodyFontColor", type="string", length=255, nullable=true)
+     * @ORM\Column(name="bodyColor", type="string", length=255, nullable=true)
      */
-    private $bodyFontColor;
+    private $bodyColor;
 
     /**
      * @var string
@@ -125,9 +125,9 @@ class Tooltips extends GlobalOption
     /**
      * @var string
      *
-     * @ORM\Column(name="footerFontColor", type="string", length=255, nullable=true)
+     * @ORM\Column(name="footerColor", type="string", length=255, nullable=true)
      */
-    private $footerFontColor;
+    private $footerColor;
 
     /**
      * @var string
@@ -177,6 +177,13 @@ class Tooltips extends GlobalOption
      * @ORM\Column(name="multiKeyBackground", type="string", length=255, nullable=true)
      */
     private $multiKeyBackground;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="displayOnBorders", type="boolean", nullable=true)
+     */
+    private $displayOnBorders;
 
     /**
      * Set enabled.
@@ -299,27 +306,27 @@ class Tooltips extends GlobalOption
     }
 
     /**
-     * Set titleFontColor.
+     * Set titleColor.
      *
-     * @param string $titleFontColor
+     * @param string $titleColor
      *
      * @return Tooltips
      */
-    public function setTitleFontColor($titleFontColor)
+    public function setTitleColor($titleColor)
     {
-        $this->titleFontColor = $titleFontColor;
+        $this->titleColor = $titleColor;
 
         return $this;
     }
 
     /**
-     * Get titleFontColor.
+     * Get titleColor.
      *
      * @return string
      */
-    public function getTitleFontColor()
+    public function getTitleColor()
     {
-        return $this->titleFontColor;
+        return $this->titleColor;
     }
 
     /**
@@ -419,27 +426,27 @@ class Tooltips extends GlobalOption
     }
 
     /**
-     * Set bodyFontColor.
+     * Set bodyColor.
      *
-     * @param string $bodyFontColor
+     * @param string $bodyColor
      *
      * @return Tooltips
      */
-    public function setBodyFontColor($bodyFontColor)
+    public function setBodyColor($bodyColor)
     {
-        $this->bodyFontColor = $bodyFontColor;
+        $this->bodyColor = $bodyColor;
 
         return $this;
     }
 
     /**
-     * Get bodyFontColor.
+     * Get bodyColor.
      *
      * @return string
      */
-    public function getBodyFontColor()
+    public function getBodyColor()
     {
-        return $this->bodyFontColor;
+        return $this->bodyColor;
     }
 
     /**
@@ -539,27 +546,27 @@ class Tooltips extends GlobalOption
     }
 
     /**
-     * Set footerFontColor.
+     * Set footerColor.
      *
-     * @param string $footerFontColor
+     * @param string $footerColor
      *
      * @return Tooltips
      */
-    public function setFooterFontColor($footerFontColor)
+    public function setFooterColor($footerColor)
     {
-        $this->footerFontColor = $footerFontColor;
+        $this->footerColor = $footerColor;
 
         return $this;
     }
 
     /**
-     * Get footerFontColor.
+     * Get footerColor.
      *
      * @return string
      */
-    public function getFooterFontColor()
+    public function getFooterColor()
     {
-        return $this->footerFontColor;
+        return $this->footerColor;
     }
 
     /**
@@ -744,5 +751,21 @@ class Tooltips extends GlobalOption
     public function setWidgetDataVisualization($widgetDatavisualization)
     {
         $this->widgetDatavisualization = $widgetDatavisualization;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getDisplayOnBorders()
+    {
+        return $this->displayOnBorders;
+    }
+
+    /**
+     * @param boolean $displayOnBorders
+     */
+    public function setDisplayOnBorders($displayOnBorders)
+    {
+        $this->displayOnBorders = $displayOnBorders;
     }
 }

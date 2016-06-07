@@ -235,6 +235,18 @@
          <target>Activer ?</target>
       </trans-unit>
       <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.isplayOnBorders.false.label</source>
+         <target>Non</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.isplayOnBorders.true.label</source>
+         <target>Oui</target>
+      </trans-unit>
+      <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.displayOnBorders.label</source>
+         <target>Afficher sur les cotés? (Beta)</target>
+      </trans-unit>
+      <trans-unit>
          <source>widget_datavisualization.form.dataset.global_option.backgroundColor.label</source>
          <target>Couleur de fond</target>
       </trans-unit>
@@ -251,7 +263,7 @@
          <target>Style de la police du titre</target>
       </trans-unit>
       <trans-unit>
-         <source>widget_datavisualization.form.dataset.global_option.titleFontColor.label</source>
+         <source>widget_datavisualization.form.dataset.global_option.titleColor.label</source>
          <target>Couleur du titre</target>
       </trans-unit>
       <trans-unit>
@@ -271,7 +283,7 @@
          <target>Taille de police des tooltips</target>
       </trans-unit>
       <trans-unit>
-         <source>widget_datavisualization.form.dataset.global_option.bodyFontColor.label</source>
+         <source>widget_datavisualization.form.dataset.global_option.bodyColor.label</source>
          <target>Couleur de la police des tooltips</target>
       </trans-unit>
       <trans-unit>
@@ -291,7 +303,7 @@
          <target>Style de la police pour le bas des tooltips</target>
       </trans-unit>
       <trans-unit>
-         <source>widget_datavisualization.form.dataset.global_option.footerFontColor.label</source>
+         <source>widget_datavisualization.form.dataset.global_option.footerColor.label</source>
          <target>Couleur de la police pour le bas des tooltips</target>
       </trans-unit>
       <trans-unit>
@@ -383,7 +395,8 @@
               <h3>
                   Cumuler des graphiques :
               </h3>
-              Vous ne pouvez pas cumuler certains graphiques comme camembert/Ligne
+              Vous ne pouvez pas cumuler certains graphiques comme camembert/Ligne.
+
               Pour cumuler des diagrammes en barre et des lignes, il faut forcément que le premier graphique soit en barres.]]>
           </target>
       </trans-unit>
