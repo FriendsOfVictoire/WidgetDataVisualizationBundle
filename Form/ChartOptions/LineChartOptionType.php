@@ -3,7 +3,7 @@
 namespace Victoire\Widget\DataVisualizationBundle\Form\ChartOptions;
 
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -21,16 +21,21 @@ class LineChartOptionType extends ChartOptionType
     {
         parent::buildForm($builder, $options);
         $builder
-            ->add('fill', ChoiceType::class, [
-                'choices' => [
-                    'widget_datavisualization.form.dataset.chart_option.fill.true.label' => 'true',
-                    'widget_datavisualization.form.dataset.chart_option.fill.false.label' => 'false',
+            ->add('fill', DataOptionType::class, [
+                'entry_type' =>  ChoiceType::class,
+                'entry_type_options' => [
+                    'choices' => [
+                        'widget_datavisualization.form.dataset.chart_option.fill.false.label' => 'false',
+                        'widget_datavisualization.form.dataset.chart_option.fill.true.label' => 'true',
+                    ],
+                    'choices_as_values' => true,
                 ],
-                'choices_as_values' => true,
+                'can_be_default' => false,
+                'can_be_multiple' => false,
                 'label' => 'widget_datavisualization.form.dataset.chart_option.fill.label',
             ])
             ->add('lineTension', DataOptionType::class, [
-                'entry_type' => IntegerType::class,
+                'entry_type' => TextType::class,
                 'can_be_default' => false,
                 'can_be_multiple' => false,
                 'label' => 'widget_datavisualization.form.dataset.chart_option.lineTension.label',
@@ -42,7 +47,7 @@ class LineChartOptionType extends ChartOptionType
                 'label' => 'widget_datavisualization.form.dataset.chart_option.backgroundColor.label',
             ])
             ->add('borderWidth', DataOptionType::class, [
-                'entry_type' => IntegerType::class,
+                'entry_type' => TextType::class,
                 'can_be_default' => false,
                 'can_be_multiple' => false,
                 'label' => 'widget_datavisualization.form.dataset.chart_option.borderWidth.label',
@@ -67,7 +72,7 @@ class LineChartOptionType extends ChartOptionType
                 'label' => 'widget_datavisualization.form.dataset.chart_option.borderCapStyle.label',
             ])
             ->add('borderDash', DataOptionType::class, [
-                'entry_type' => IntegerType::class,
+                'entry_type' => TextType::class,
                 'length' => 2,
                 'can_be_default' => false,
                 'label' => 'widget_datavisualization.form.dataset.chart_option.borderDash.label',
@@ -75,7 +80,7 @@ class LineChartOptionType extends ChartOptionType
             ->add('borderDashOffset', DataOptionType::class, [
                 'can_be_default' => false,
                 'can_be_multiple' => false,
-                'entry_type' => IntegerType::class,
+                'entry_type' => TextType::class,
                 'label' => 'widget_datavisualization.form.dataset.chart_option.borderDashOffset.label',
             ])
             ->add('borderJoinStyle', ChoiceType::class, [
@@ -101,7 +106,7 @@ class LineChartOptionType extends ChartOptionType
                 'label' => 'widget_datavisualization.form.dataset.chart_option.pointBackgroundColor.label',
             ])
             ->add('pointBorderWidth', DataOptionType::class, [
-                'entry_type' => IntegerType::class,
+                'entry_type' => TextType::class,
                 'entry_options' => [
                     'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
                 ],
@@ -109,7 +114,7 @@ class LineChartOptionType extends ChartOptionType
                 'label' => 'widget_datavisualization.form.dataset.chart_option.pointBorderWidth.label',
             ])
             ->add('pointRadius', DataOptionType::class, [
-                'entry_type' => IntegerType::class,
+                'entry_type' => TextType::class,
                 'entry_options' => [
                     'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
                 ],
@@ -117,7 +122,7 @@ class LineChartOptionType extends ChartOptionType
                 'label' => 'widget_datavisualization.form.dataset.chart_option.pointRadius.label',
             ])
             ->add('pointHoverRadius', DataOptionType::class, [
-                'entry_type' => IntegerType::class,
+                'entry_type' => TextType::class,
                 'entry_options' => [
                     'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
                 ],
@@ -125,7 +130,7 @@ class LineChartOptionType extends ChartOptionType
                 'label' => 'widget_datavisualization.form.dataset.chart_option.pointHoverRadius.label',
             ])
             ->add('pointHitRadius', DataOptionType::class, [
-                'entry_type' => IntegerType::class,
+                'entry_type' => TextType::class,
                 'entry_options' => [
                     'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
                 ],
@@ -149,7 +154,7 @@ class LineChartOptionType extends ChartOptionType
                 'label' => 'widget_datavisualization.form.dataset.chart_option.pointHoverBorderColor.label',
             ])
             ->add('pointHoverBorderWidth', DataOptionType::class, [
-                'entry_type' => IntegerType::class,
+                'entry_type' => TextType::class,
                 'length' => $options['length'],
                 'entry_options' => [
                     'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
@@ -170,8 +175,8 @@ class LineChartOptionType extends ChartOptionType
                 'label' => 'widget_datavisualization.form.dataset.chart_option.pointStyle.label',
             ])
         ;
-        $builder->get('backgroundColor')->addEventListener(FormEvents::POST_SET_DATA, function (FormEvent $event) {
-           //var_dump($event->getData());
+        $builder->get('fill')->addEventListener(FormEvents::POST_SET_DATA, function (FormEvent $event) {
+         //  var_dump($event->getData());
         });
     }
 

@@ -44,9 +44,9 @@ class TooltipsType extends AbstractType
                 'required' => true,
                 'label' => 'widget_datavisualization.form.dataset.global_option.titleFontStyle.label',
             ])
-            ->add('titleFontColor', ColorType::class, [
+            ->add('titleColor', ColorType::class, [
                 'required' => false,
-                'label' => 'widget_datavisualization.form.dataset.global_option.titleFontColor.label',
+                'label' => 'widget_datavisualization.form.dataset.global_option.titleColor.label',
             ])
             ->add('titleSpacing', IntegerType::class, [
                 'required' => true,
@@ -64,9 +64,9 @@ class TooltipsType extends AbstractType
                 'required' => true,
                 'label' => 'widget_datavisualization.form.dataset.global_option.bodyFontSize.label',
             ])
-            ->add('bodyFontColor', ColorType::class, [
+            ->add('bodyColor', ColorType::class, [
                 'required' => false,
-                'label' => 'widget_datavisualization.form.dataset.global_option.bodyFontColor.label',
+                'label' => 'widget_datavisualization.form.dataset.global_option.bodyColor.label',
             ])
             ->add('bodySpacing', IntegerType::class, [
                 'required' => true,
@@ -84,9 +84,9 @@ class TooltipsType extends AbstractType
                 'required' => true,
                 'label' => 'widget_datavisualization.form.dataset.global_option.footerFontStyle.label',
             ])
-            ->add('footerFontColor', ColorType::class, [
+            ->add('footerColor', ColorType::class, [
                 'required' => false,
-                'label' => 'widget_datavisualization.form.dataset.global_option.footerFontColor.label',
+                'label' => 'widget_datavisualization.form.dataset.global_option.footerColor.label',
             ])
             ->add('footerSpacing', IntegerType::class, [
                 'required' => true,
@@ -116,6 +116,15 @@ class TooltipsType extends AbstractType
                 'required' => false,
                 'label' => 'widget_datavisualization.form.dataset.global_option.multiKeyBackground.label',
             ])
+            ->add('displayOnBorders', ChoiceType::class, [
+                    'choices' => [
+                        'widget_datavisualization.form.dataset.global_option.enabled.false.label' => false,
+                        'widget_datavisualization.form.dataset.global_option.enabled.true.label' => true,
+                    ],
+                    'choices_as_values' => true,
+                    'label' => 'widget_datavisualization.form.dataset.global_option.displayOnBorders.label',
+                ]
+            )
         ;
     }
 

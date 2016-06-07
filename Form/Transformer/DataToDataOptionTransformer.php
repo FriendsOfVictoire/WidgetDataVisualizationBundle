@@ -11,6 +11,7 @@ use Symfony\Component\Form\DataTransformerInterface;
 class DataToDataOptionTransformer implements DataTransformerInterface
 {
     private $default;
+    private $canBeMultiple;
     private $length;
 
     /**
@@ -18,10 +19,11 @@ class DataToDataOptionTransformer implements DataTransformerInterface
      *
      * @param bool $hasDefault
      */
-    public function __construct($hasDefault = true, $length = null)
+    public function __construct($hasDefault = true, $canBeMultiple = true, $length = null)
     {
         $this->default = $hasDefault;
         $this->length = $length;
+        $this->canBeMultiple = $canBeMultiple;
     }
 
     /**
@@ -50,9 +52,13 @@ class DataToDataOptionTransformer implements DataTransformerInterface
                 'data_option_single' => $dataOptionSingle,
                 'isDefault' => $isDefault,
             ];
-        } else {
+        } elseif($this->canBeMultiple) {
             return [
                 'data_option_multiple' => $dataOptionMultiple,
+            ];
+        }else{
+            return [
+                'data_option_single' => $dataOptionSingle,
             ];
         }
     }
@@ -62,7 +68,7 @@ class DataToDataOptionTransformer implements DataTransformerInterface
      */
     public function reverseTransform($value)
     {
-        if ((isset($value['isDefault']) && $value['isDefault']) || (isset($value['data_option_single']) && !isset($value['data_option_multiple']))) {
+        if ((isset($value['isDefault']) && $value['isDefault']) || (array_key_exists('data_option_single', $value) && !array_key_exists('data_option_multiple',$value))) {
             $val = $value['data_option_single'];
             if ($val == null) {
                 return;

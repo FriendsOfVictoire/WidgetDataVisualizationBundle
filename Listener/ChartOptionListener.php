@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormFactoryInterface;
 use Victoire\Widget\DataVisualizationBundle\DependencyInjection\Chain\ChartOptionChain;
+use Victoire\Widget\DataVisualizationBundle\Entity\ChartOptions\ChartOption;
 
 /**
  * Class ChartOptionListener.
@@ -66,16 +67,13 @@ class ChartOptionListener implements EventSubscriberInterface
     private function buildChartOptionForm(FormEvent $event)
     {
         $data = $event->getData();
-        //var_dump('here');
         if ($data) {
-            //var_dump($data->getBackgroundColor());
             $form = $event->getForm()->getParent();
             if ($form->has('chartOption')) {
                 $chartOption = $this->mapChartOption(
                     $this->chartOptionChain->getChartOptionEntity($data),
                     $form->get('chartOption')->getData()
                 );
-                //var_dump($form->get('chartOption')->getData()->getBackgroundColor());
                 $form->remove('chartOption');
             } else {
                 $chartOption = null;
@@ -97,7 +95,7 @@ class ChartOptionListener implements EventSubscriberInterface
      * @param $charOptionClass
      * @param $data
      *
-     * @return mixed
+     * @return ChartOption
      */
     private function mapChartOption($charOptionClass, $data)
     {
