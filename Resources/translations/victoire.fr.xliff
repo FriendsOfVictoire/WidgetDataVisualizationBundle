@@ -244,7 +244,7 @@
       </trans-unit>
       <trans-unit>
          <source>widget_datavisualization.form.dataset.global_option.displayOnBorders.label</source>
-         <target>Afficher sur les cotés? (Beta)</target>
+         <target>Afficher sur les cotés? (Beta - uniquement pour moins de 4 éléments)</target>
       </trans-unit>
       <trans-unit>
          <source>widget_datavisualization.form.dataset.global_option.backgroundColor.label</source>

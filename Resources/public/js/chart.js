@@ -1,6 +1,6 @@
 Chart.pluginService.register({
     beforeRender: function (chart) {
-        if (chart.config.options.tooltips.displayOnBorders) {
+        if (chart.config.options.tooltips.displayOnBorders && chart.data.labels.length < 4) {
             // create an array of tooltips
             // we can't use the chart tooltip because there is only one tooltip per chart
             chart.pluginTooltips = [];
@@ -21,7 +21,7 @@ Chart.pluginService.register({
         }
     },
     afterDraw: function (chart, easing) {
-        if (chart.config.options.tooltips.displayOnBorders) {
+        if (chart.config.options.tooltips.displayOnBorders && chart.data.labels.length < 4) {
             // we don't want the permanent tooltips to animate, so don't do anything till the animation runs atleast once
             if (!chart.allTooltipsOnce) {
                 if (easing !== 1)

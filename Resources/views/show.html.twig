@@ -33,9 +33,9 @@ $(document).ready(function() {
                 {% if widget.tooltips %}
                     {{ _self.displayGlobalOptions(widget.tooltips) }},
                     callbacks: {
-                        {% if widget.tooltips.displayOnBorders != 1 %}
+                        {% if widget.tooltips.displayOnBorders != 1 or widget.labels > 3 %}
                             {% if widget.dataSets|length > 1 %}
-                                label: function(tooltipItems, data, third) {
+                                label: function(tooltipItems, data) {
                                     return data.datasets[tooltipItems.datasetIndex].label +' : ' + tooltipItems.yLabel + '{{ widget.tooltips.afterTitle }}';
                                 }
                             {% else %}
@@ -45,7 +45,7 @@ $(document).ready(function() {
                             {% endif %}
                         {% else %}
                             {% if widget.dataSets|length > 1 %}
-                                label: function(tooltipItems, data, third) {
+                                label: function(tooltipItems, data) {
                                     return data.datasets[tooltipItems.datasetIndex].label +' : ' + tooltipItems.yLabel + '{{ widget.tooltips.afterTitle }}';
                                 }
                             {% else %}
