@@ -24,19 +24,23 @@ $(document).ready(function() {
         }{% endif %}{% endfor %},
         options: {
             legend: { {% if widget.legend %}
-
                 {{ _self.displayGlobalOptions(widget.legend) }}{% endif %}
             },
             title: { {% if widget.title %}
-
                 {{ _self.displayGlobalOptions(widget.title) }}{% endif %}
             },
             tooltips: {
                 {% if widget.tooltips %}
-
-                {{ _self.displayGlobalOptions(widget.tooltips) }}{% endif %}
-
-            },
+                    {{ _self.displayGlobalOptions(widget.tooltips) }}
+                    {% if widget.tooltips.afterTitle %},
+                        callbacks: {
+                            label: function(tooltipItems, data) {
+                                return data.datasets[tooltipItems.datasetIndex].label +': ' + tooltipItems.yLabel + '{{ widget.tooltips.afterTitle }}';
+                            }
+                        }
+                    {% endif %}
+                {% endif %}
+            }
         }
     });
 });
@@ -53,7 +57,6 @@ $(document).ready(function() {
         {% set value = attribute(chartOption, optionValue)|raw %}
         {% if value == '"true"' %}{% set value = "true" %}{% elseif value == '"false"' %}{% set value = "false" %}{% endif %}
         {{ optionValue }} : {{ value|raw }}{% if not loop.last %},{% endif %}
-
     {% endfor %}
 {% endmacro %}
 {% macro displayGlobalOptions(globalOption) %}

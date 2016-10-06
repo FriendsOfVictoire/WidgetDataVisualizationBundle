@@ -116,6 +116,10 @@ class TooltipsType extends AbstractType
                 'required' => false,
                 'label' => 'widget_datavisualization.form.dataset.global_option.multiKeyBackground.label',
             ])
+            ->add('afterTitle', TextType::class, [
+                'required' => false,
+                'label' => 'widget_datavisualization.form.dataset.global_option.afterTitle.label',
+            ])
             ->add('displayOnBorders', ChoiceType::class, [
                     'choices' => [
                         'widget_datavisualization.form.dataset.global_option.enabled.false.label' => false,

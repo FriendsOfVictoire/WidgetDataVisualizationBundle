@@ -169,12 +169,16 @@ class DataSet
     {
         return $this->chartOption;
     }
+
+    /**
+     * If chartOption, returns Type
+     *
+     * @return string|null
+     */
     public function getType()
     {
-        if ($this->chartOption) {
+        if ($this->chartOption instanceof ChartOption) {
             return $this->chartOption->getType();
         }
-
-        return;
     }
 }

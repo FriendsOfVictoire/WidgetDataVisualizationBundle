@@ -73,6 +73,10 @@ abstract class ChartOption
     {
         return $this->dataset;
     }
+
+    /**
+     * @return string
+     */
     public function getType()
     {
         return;

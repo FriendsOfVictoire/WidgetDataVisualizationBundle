@@ -186,6 +186,13 @@ class Tooltips extends GlobalOption
     private $displayOnBorders;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="afterTitle", type="string", length=255, nullable=true)
+     */
+    private $afterTitle;
+
+    /**
      * Set enabled.
      *
      * @param string $enabled
@@ -767,5 +774,25 @@ class Tooltips extends GlobalOption
     public function setDisplayOnBorders($displayOnBorders)
     {
         $this->displayOnBorders = $displayOnBorders;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAfterTitle()
+    {
+        return $this->afterTitle;
+    }
+
+    /**
+     * @param string $afterTitle
+     *
+     * @return Tooltips
+     */
+    public function setAfterTitle($afterTitle)
+    {
+        $this->afterTitle = $afterTitle;
+
+        return $this;
     }
 }

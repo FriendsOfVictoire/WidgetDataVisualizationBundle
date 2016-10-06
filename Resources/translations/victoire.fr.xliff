@@ -335,6 +335,10 @@
          <target>Couleur à mettre derrière les cases quand il y a plusieurs éléments dans la tooltip</target>
       </trans-unit>
       <trans-unit>
+         <source>widget_datavisualization.form.dataset.global_option.afterTitle.label</source>
+         <target>Unité des valeurs (ordonnées)</target>
+      </trans-unit>
+      <trans-unit>
          <source>widget_datavisualization.form.dataset.chart.option.title.label</source>
          <target>Titre</target>
       </trans-unit>
