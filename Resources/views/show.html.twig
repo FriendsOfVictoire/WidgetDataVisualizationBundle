@@ -31,14 +31,33 @@ $(document).ready(function() {
             },
             tooltips: {
                 {% if widget.tooltips %}
-                    {{ _self.displayGlobalOptions(widget.tooltips) }}
-                    {% if widget.tooltips.afterTitle %},
-                        callbacks: {
-                            label: function(tooltipItems, data) {
-                                return data.datasets[tooltipItems.datasetIndex].label +': ' + tooltipItems.yLabel + '{{ widget.tooltips.afterTitle }}';
-                            }
-                        }
-                    {% endif %}
+                    {{ _self.displayGlobalOptions(widget.tooltips) }},
+                    callbacks: {
+                        {% if widget.tooltips.displayOnBorders != 1 %}
+                            {% if widget.dataSets|length > 1 %}
+                                label: function(tooltipItems, data, third) {
+                                    return data.datasets[tooltipItems.datasetIndex].label +' : ' + tooltipItems.yLabel + '{{ widget.tooltips.afterTitle }}';
+                                }
+                            {% else %}
+                                label: function(tooltipItem, data) {
+                                    return data.labels[tooltipItem.index] + ' : ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] + '{{ widget.tooltips.afterTitle }}';
+                                }
+                            {% endif %}
+                        {% else %}
+                            {% if widget.dataSets|length > 1 %}
+                                label: function(tooltipItems, data, third) {
+                                    return data.datasets[tooltipItems.datasetIndex].label +' : ' + tooltipItems.yLabel + '{{ widget.tooltips.afterTitle }}';
+                                }
+                            {% else %}
+                                beforeLabel: function(tooltipItem, data) {
+                                    return data.labels[tooltipItem.index] + ' : ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] + '{{ widget.tooltips.afterTitle }}';
+                                },
+                                label: function(tooltipItem, data) {
+                                    return '';
+                                }
+                            {% endif %}
+                        {% endif %}
+                    }
                 {% endif %}
             }
         }

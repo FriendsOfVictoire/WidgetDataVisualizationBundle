@@ -6,19 +6,6 @@ Chart.pluginService.register({
             chart.pluginTooltips = [];
             chart.config.data.datasets.forEach(function (dataset, i) {
                 chart.getDatasetMeta(i).data.forEach(function (sector, j) {
-
-                    chart.options.tooltips.callbacks.beforeLabel = function(tooltipItem, data){
-                        return data.labels[tooltipItem.index];
-                    };
-                    chart.options.tooltips.callbacks.label = function(tooltipItem, data){
-                        return ;
-                    };
-                    chart.options.tooltips.callbacks.beforeLabel = function(tooltipItem, data){
-                        return data.labels[tooltipItem.index];
-                    };
-                    chart.options.tooltips.callbacks.afterLabel = function(tooltipItem, data){
-                        return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                    };
                     chart.pluginTooltips.push(new Chart.Tooltip({
                         _chart: chart.chart,
                         _chartInstance: chart,
