@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
 class LineChartOption extends ChartOption
 {
     /**
+     * @var string
+     * @ORM\Column(name="yAxisID", length=255, nullable=true)
+     */
+    private $yAxisID = 'left';
+    /**
      * @var bool
      * @ORM\Column(name="fill", length=255, type="string", nullable=true)
      */
@@ -575,5 +580,23 @@ class LineChartOption extends ChartOption
     public function setLineTension($lineTension)
     {
         $this->lineTension = $lineTension;
+    }
+
+    /**
+     * @return string
+     */
+    public function getYAxisID()
+    {
+        return $this->yAxisID;
+    }
+
+    /**
+     * @param string $yAxisID
+     * @return LineChartOption
+     */
+    public function setYAxisID($yAxisID)
+    {
+        $this->yAxisID = $yAxisID;
+        return $this;
     }
 }

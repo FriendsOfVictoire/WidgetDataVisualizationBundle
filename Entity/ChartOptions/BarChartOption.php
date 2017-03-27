@@ -13,6 +13,11 @@ class BarChartOption extends ChartOption
 {
     /**
      * @var string
+     * @ORM\Column(name="yAxisID", length=255, nullable=true)
+     */
+    private $yAxisID = 'left';
+    /**
+     * @var string
      * @ORM\Column(name="backgroundColor", length=255, nullable=true)
      */
     private $backgroundColor;
@@ -217,5 +222,23 @@ class BarChartOption extends ChartOption
     public function getType()
     {
         return 'bar';
+    }
+
+    /**
+     * @return string
+     */
+    public function getYAxisID()
+    {
+        return $this->yAxisID;
+    }
+
+    /**
+     * @param string $yAxisID
+     * @return BarChartOption
+     */
+    public function setYAxisID($yAxisID)
+    {
+        $this->yAxisID = $yAxisID;
+        return $this;
     }
 }

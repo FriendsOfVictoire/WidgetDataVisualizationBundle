@@ -21,6 +21,20 @@ class LineChartOptionType extends ChartOptionType
     {
         parent::buildForm($builder, $options);
         $builder
+            ->add('yAxisID', DataOptionType::class, [
+                'entry_type' => ChoiceType::class,
+                'entry_options' => [
+                    'dynamicLabel' => '{{formRootId}}[labels][{{index}}]',
+                ],
+                'entry_type_options' => [
+                    'choices' => [
+                        'left' => 'left', 'right' => 'right',
+                    ],
+                ],
+                'can_be_default' => false,
+                'can_be_multiple' => false,
+                'label' => 'widget_datavisualization.form.dataset.chart_option.yAxisID.label',
+            ])
             ->add('fill', DataOptionType::class, [
                 'entry_type' =>  ChoiceType::class,
                 'entry_type_options' => [
