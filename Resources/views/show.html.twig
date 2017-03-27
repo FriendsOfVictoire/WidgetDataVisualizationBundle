@@ -23,6 +23,16 @@ $(document).ready(function() {
 
         }{% endif %}{% endfor %},
         options: {
+    {% if yAxes|length > 0 %}
+            scales: {
+                yAxes: [{% for yAxe in yAxes %}
+                {
+                    position: {{ yAxe|raw }},
+                    "id": {{ yAxe|raw }}
+                }{% if not loop.last %},{% endif %}{% endfor %}
+                ]
+            },
+    {% endif %}
             legend: { {% if widget.legend %}
                 {{ _self.displayGlobalOptions(widget.legend) }}{% endif %}
             },

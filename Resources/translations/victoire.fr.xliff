@@ -363,6 +363,10 @@
           <target>Tooltips des graphiques</target>
       </trans-unit>
       <trans-unit>
+          <source>widget_datavisualization.form.dataset.chart_option.yAxisID.label</source>
+          <target>Coté de l'axe</target>
+      </trans-unit>
+      <trans-unit>
           <source>widget_datavisualization.form.help.color</source>
           <target><![CDATA[
             <h3>

@@ -4,7 +4,7 @@
     "javascripts":
     {
       "foot": [
-        "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.2/Chart.bundle.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js",
         "bundles/victoirewidgetdatavisualization/js/chart.js"
       ],
       "victoire-edit": [

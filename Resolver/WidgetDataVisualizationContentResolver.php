@@ -4,6 +4,7 @@ namespace Victoire\Widget\DataVisualizationBundle\Resolver;
 
 use Victoire\Bundle\WidgetBundle\Model\Widget;
 use Victoire\Bundle\WidgetBundle\Resolver\BaseWidgetContentResolver;
+use Victoire\Widget\DataVisualizationBundle\Entity\DataSet;
 
 /**
  * CRUD operations on WidgetDataVisualization Widget.
@@ -39,7 +40,16 @@ class WidgetDataVisualizationContentResolver extends BaseWidgetContentResolver
      */
     public function getWidgetStaticContent(Widget $widget)
     {
-        return parent::getWidgetStaticContent($widget);
+        $axes = [];
+        /** @var DataSet $dataset */
+        foreach ($widget->getDatasets() as $dataset)
+        {
+            if (method_exists($dataset->getChartOption(), 'getYAxisID')){
+               $axes[] = $dataset->getChartOption()->getYAxisID();
+            }
+        }
+        $parameters = parent::getWidgetStaticContent($widget);
+        return array_merge($parameters, ['yAxes' => array_unique($axes)]);
     }
 
     /**
