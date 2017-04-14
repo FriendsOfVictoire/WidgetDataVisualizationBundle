@@ -5,15 +5,13 @@
 <script>
 $(document).ready(function() {
     var ctx = document.getElementById("chartWidget{{ widget.id}}");
-    var chartWidget{{ widget.id}} = new Chart(ctx, { {% for dataSet in widget.dataSets  %}{% if loop.first %}
+    var chartWidget{{ widget.id}} = new Chart(ctx, { {% for dataSet in dataSets  %}{% if loop.first %}
 
-        type: '{{ dataSet.type }}',
+        type: '{{ mainType }}',
         data: {
             labels: {{ _self.displayArray(widget.labels) }},
-            datasets: [{% endif %}{ {% if not loop.first %}
-
-                type: "{{ dataSet.type }}", {% endif %}
-
+            datasets: [{% endif %}{
+                type: "{{ dataSet.type }}",
                 label: "{{ dataSet.title }}",
                 data: {{ _self.displayData(dataSet.data) }} ,
             {{  _self.displayOptions(dataSet.chartOption) }}

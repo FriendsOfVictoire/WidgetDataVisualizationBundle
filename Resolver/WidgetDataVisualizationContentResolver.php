@@ -5,6 +5,7 @@ namespace Victoire\Widget\DataVisualizationBundle\Resolver;
 use Victoire\Bundle\WidgetBundle\Model\Widget;
 use Victoire\Bundle\WidgetBundle\Resolver\BaseWidgetContentResolver;
 use Victoire\Widget\DataVisualizationBundle\Entity\DataSet;
+use Victoire\Widget\DataVisualizationBundle\Entity\WidgetDataVisualization;
 
 /**
  * CRUD operations on WidgetDataVisualization Widget.
@@ -33,6 +34,8 @@ class WidgetDataVisualizationContentResolver extends BaseWidgetContentResolver
 {
     /**
      * Get the static content of the widget.
+     * Reorganize the dataSets to set lines as first to avoid to hide them under bars.
+     * Define a "mainType" to use in mixed charts
      *
      * @param Widget $widget
      *
@@ -48,43 +51,36 @@ class WidgetDataVisualizationContentResolver extends BaseWidgetContentResolver
                $axes[] = $dataset->getChartOption()->getYAxisID();
             }
         }
-        $parameters = parent::getWidgetStaticContent($widget);
-        return array_merge($parameters, ['yAxes' => array_unique($axes)]);
+
+        /** @var WidgetDataVisualization $widget */
+        $ordered = $widget->getDataSets()->partition(function($key, $item) {
+            return $item->getType() === 'line';
+        });
+
+        $dataSets = array_merge($ordered[0]->toArray(), $ordered[1]->toArray());
+        $types = [];
+        if ($widget->getDataSets()->count() > 1) {
+            foreach($widget->getDataSets() as $key => $dataSet) {
+                $types[$key] = $dataSet->getType();
+            }
+        }
+
+        $types = array_map(function($item) {
+           return $item->getType();
+        }, $widget->getDataSets()->toArray());
+
+        array_unique($types);
+        $mainType = $types[0];
+        if (in_array('bar', $types) && in_array('line', $types)) {
+            $mainType = 'bar';
+        }
+        $parameters =  parent::getWidgetStaticContent($widget);
+
+        return array_merge($parameters, [
+            'mainType' => $mainType,
+            'dataSets' => $dataSets,
+            'yAxes' => array_unique($axes)
+        ]);
     }
 
-    /**
-     * Get the business entity content.
-     *
-     * @param Widget $widget
-     *
-     * @return string
-     */
-    public function getWidgetBusinessEntityContent(Widget $widget)
-    {
-        return parent::getWidgetBusinessEntityContent($widget);
-    }
-
-    /**
-     * Get the content of the widget by the entity linked to it.
-     *
-     * @param Widget $widget
-     *
-     * @return string
-     */
-    public function getWidgetEntityContent(Widget $widget)
-    {
-        return parent::getWidgetEntityContent($widget);
-    }
-
-    /**
-     * Get the content of the widget for the query mode.
-     *
-     * @param Widget $widget
-     *
-     * @throws \Exception
-     */
-    public function getWidgetQueryContent(Widget $widget)
-    {
-        return parent::getWidgetQueryContent($widget);
-    }
 }
