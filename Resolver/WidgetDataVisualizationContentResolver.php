@@ -44,13 +44,7 @@ class WidgetDataVisualizationContentResolver extends BaseWidgetContentResolver
     public function getWidgetStaticContent(Widget $widget)
     {
         $axes = [];
-        /** @var DataSet $dataset */
-        foreach ($widget->getDatasets() as $dataset)
-        {
-            if (method_exists($dataset->getChartOption(), 'getYAxisID')){
-               $axes[] = $dataset->getChartOption()->getYAxisID();
-            }
-        }
+        $maxes = [];
 
         /** @var WidgetDataVisualization $widget */
         $ordered = $widget->getDataSets()->partition(function($key, $item) {
@@ -58,6 +52,18 @@ class WidgetDataVisualizationContentResolver extends BaseWidgetContentResolver
         });
 
         $dataSets = array_merge($ordered[0]->toArray(), $ordered[1]->toArray());
+
+        /** @var DataSet $dataset */
+        foreach ($dataSets as $k => $dataset)
+        {
+            if (method_exists($dataset->getChartOption(), 'getYAxisID')){
+                $axes[] = $dataset->getChartOption()->getYAxisID();
+                if (!array_key_exists($dataset->getChartOption()->getYAxisID(), $maxes) || $maxes[$dataset->getChartOption()->getYAxisID()] < max($dataset->getData()) * 1.2) {
+                    $maxes[$dataset->getChartOption()->getYAxisID()] = max($dataset->getData()) * 1.2;
+                }
+            }
+        }
+
         $types = [];
         if ($widget->getDataSets()->count() > 1) {
             foreach($widget->getDataSets() as $key => $dataSet) {
@@ -79,7 +85,8 @@ class WidgetDataVisualizationContentResolver extends BaseWidgetContentResolver
         return array_merge($parameters, [
             'mainType' => $mainType,
             'dataSets' => $dataSets,
-            'yAxes' => array_unique($axes)
+            'yAxes' => array_unique($axes),
+            'maxes' => $maxes,
         ]);
     }
 
