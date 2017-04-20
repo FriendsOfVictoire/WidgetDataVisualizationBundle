@@ -23,8 +23,12 @@ $(document).ready(function() {
         options: {
     {% if yAxes|length > 0 %}
             scales: {
-                yAxes: [{% for yAxe in yAxes %}
+                yAxes: [{% for k, yAxe in yAxes %}
                 {
+                    ticks: {
+                        suggestedMin: 0{% if maxes[yAxe] %},
+                        suggestedMax: {{ maxes[yAxe] }} {% endif %}
+                    },
                     position: {{ yAxe|raw }},
                     "id": {{ yAxe|raw }}
                 }{% if not loop.last %},{% endif %}{% endfor %}
